@@ -1,0 +1,32 @@
+services:
+  goodbuy-item:
+    image: 'goodbuy-item-docker-image'
+    build:
+      context: .
+    container_name: 'goodbuy-item-docker-container'
+    depends_on:
+      - db
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5433/goodbuy-item-db
+      - SPRING_DATASOURCE_USERNAME=goodBuy
+      - SPRING_DATASOURCE_PASSWORD=goodBuyItem
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=create-drop
+    networks:
+      - goodbuy-network
+  db:
+    image: postgres:latest
+    container_name: goodbuy-item-db
+    command: -p 5433
+    ports:
+      - "5433:5433"
+    environment:
+      - POSTGRES_USER=goodBuy
+      - POSTGRES_PASSWORD=goodBuyItem
+      - POSTGRES_DB=goodbuy-item-db
+    networks:
+      - goodbuy-network
+networks:
+  goodbuy-network:
+    external: true
