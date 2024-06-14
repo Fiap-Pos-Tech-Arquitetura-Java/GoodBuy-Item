@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +28,7 @@ public class ItemController {
     }
 
     @Operation(summary = "registra um item")
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping
     public ResponseEntity<Item> save(@Valid @RequestBody Item itemDTO) {
         Item savedItemDTO = itemService.save(itemDTO);
@@ -64,6 +66,7 @@ public class ItemController {
     }
 
     @Operation(summary = "altera um item por seu id")
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{id}")
     public ResponseEntity<?> update(@PathVariable UUID id, @Valid @RequestBody Item itemDTO) {
         try {
@@ -75,6 +78,7 @@ public class ItemController {
     }
 
     @Operation(summary = "remove um item por seu id")
+    @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/{id}")
     public ResponseEntity<?> delete(@PathVariable UUID id) {
         try {
