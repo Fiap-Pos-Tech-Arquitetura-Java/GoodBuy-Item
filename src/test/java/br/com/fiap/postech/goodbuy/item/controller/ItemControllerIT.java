@@ -23,7 +23,6 @@ import java.util.UUID;
 import static io.restassured.RestAssured.given;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
@@ -322,7 +321,7 @@ public class ItemControllerIT {
             var item = new Item();
             item.setId(UUID.fromString("759ae7fa-2cd2-46ef-9c54-737a4d9d408d"));
             given()
-                .header(HttpHeaders.AUTHORIZATION, UserHelper.getToken(UserRole.ADMIN))
+                .header(HttpHeaders.AUTHORIZATION, UserHelper.getToken(user))
             .when()
                 .delete(ITEM + "/{id}", item.getId())
             .then()
@@ -338,7 +337,7 @@ public class ItemControllerIT {
             var item = new Item();
             item.setId(UUID.fromString("759ae7fa-2cd2-46ef-9c54-737a4d9d408d"));
             given()
-                    .header(HttpHeaders.AUTHORIZATION, UserHelper.getToken(UserRole.ADMIN))
+                    .header(HttpHeaders.AUTHORIZATION, UserHelper.getToken(user))
                     .when()
                     .delete(ITEM + "/{id}", item.getId())
                     .then()

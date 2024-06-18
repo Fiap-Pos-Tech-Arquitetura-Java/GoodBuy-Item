@@ -27,10 +27,6 @@ public class UserHelper {
         return "Bearer " + new JwtServiceHelper().generateToken(user);
     }
 
-    public static String getToken(UserRole userRole) {
-        return getToken(getUser(true, userRole));
-    }
-
     public static UserDetails getUserDetails(User user) {
         return new UserDetailsImpl(user);
     }
