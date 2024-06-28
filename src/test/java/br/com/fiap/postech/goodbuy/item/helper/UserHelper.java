@@ -1,9 +1,9 @@
 package br.com.fiap.postech.goodbuy.item.helper;
 
-import br.com.fiap.postech.goodbuy.item.security.JwtServiceHelper;
-import br.com.fiap.postech.goodbuy.item.security.User;
-import br.com.fiap.postech.goodbuy.item.security.UserDetailsImpl;
-import br.com.fiap.postech.goodbuy.item.security.enums.UserRole;
+import br.com.fiap.postech.goodbuy.security.JwtService;
+import br.com.fiap.postech.goodbuy.security.User;
+import br.com.fiap.postech.goodbuy.security.UserDetailsImpl;
+import br.com.fiap.postech.goodbuy.security.enums.UserRole;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
@@ -24,7 +24,7 @@ public class UserHelper {
     }
 
     public static String getToken(User user) {
-        return "Bearer " + new JwtServiceHelper().generateToken(user);
+        return "Bearer " + new JwtService().generateToken(user);
     }
 
     public static UserDetails getUserDetails(User user) {
