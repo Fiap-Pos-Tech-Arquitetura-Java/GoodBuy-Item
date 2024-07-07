@@ -48,7 +48,7 @@ public class ItemControllerIT {
     class CadastrarItem {
         @Test
         void devePermitirCadastrarItem() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -66,7 +66,7 @@ public class ItemControllerIT {
 
         @Test
         void deveGerarExcecao_QuandoCadastrarItem_UserNaoAdministrativo() {
-            var user = UserHelper.getUser(true, UserRole.USER);
+            var user = UserHelper.getUser(UserRole.USER);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -84,7 +84,7 @@ public class ItemControllerIT {
 
         @Test
         void deveGerarExcecao_QuandoCadastrarItem_RequisicaoXml() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -103,7 +103,7 @@ public class ItemControllerIT {
     class BuscarItem {
         @Test
         void devePermitirBuscarItemPorId_userAdmin() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -120,7 +120,7 @@ public class ItemControllerIT {
 
         @Test
         void devePermitirBuscarItemPorId() {
-            var user = UserHelper.getUser(true, UserRole.USER);
+            var user = UserHelper.getUser(UserRole.USER);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -137,7 +137,7 @@ public class ItemControllerIT {
 
         @Test
         void deveGerarExcecao_QuandoBuscarItemPorId_idNaoExiste() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -153,7 +153,7 @@ public class ItemControllerIT {
 
         @Test
         void devePermitirBuscarTodosItem_userAdmin() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -169,7 +169,7 @@ public class ItemControllerIT {
 
         @Test
         void devePermitirBuscarTodosItem() {
-            var user = UserHelper.getUser(true, UserRole.USER);
+            var user = UserHelper.getUser(UserRole.USER);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -185,7 +185,7 @@ public class ItemControllerIT {
 
         @Test
         void devePermitirBuscarTodosItem_ComPaginacao_userAdmin() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -203,7 +203,7 @@ public class ItemControllerIT {
 
         @Test
         void devePermitirBuscarTodosItem_ComPaginacao() {
-            var user = UserHelper.getUser(true, UserRole.USER);
+            var user = UserHelper.getUser(UserRole.USER);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -224,7 +224,7 @@ public class ItemControllerIT {
     class AlterarItem {
         @Test
         void devePermitirAlterarItem() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -250,7 +250,7 @@ public class ItemControllerIT {
 
         @Test
         void deveGerarExcecao_QuandoAlterarItem_UserNaoAdministrativo() {
-            var user = UserHelper.getUser(true, UserRole.USER);
+            var user = UserHelper.getUser(UserRole.USER);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -276,7 +276,7 @@ public class ItemControllerIT {
 
         @Test
         void deveGerarExcecao_QuandoAlterarItem_RequisicaoXml() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -293,7 +293,7 @@ public class ItemControllerIT {
 
         @Test
         void deveGerarExcecao_QuandoAlterarItemPorId_idNaoExiste() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -314,7 +314,7 @@ public class ItemControllerIT {
     class RemoverItem {
         @Test
         void devePermitirRemoverItem() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -330,7 +330,7 @@ public class ItemControllerIT {
 
         @Test
         void deveGerarExcecao_QuandoRemoverItem_UserNaoAdministrativo() {
-            var user = UserHelper.getUser(true, UserRole.USER);
+            var user = UserHelper.getUser(UserRole.USER);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
@@ -346,7 +346,7 @@ public class ItemControllerIT {
 
         @Test
         void deveGerarExcecao_QuandoRemoverItemPorId_idNaoExiste() {
-            var user = UserHelper.getUser(true, UserRole.ADMIN);
+            var user = UserHelper.getUser(UserRole.ADMIN);
             var userDetails = UserHelper.getUserDetails(user);
             when(userDetailsService.loadUserByUsername(anyString())).thenReturn(userDetails);
 
